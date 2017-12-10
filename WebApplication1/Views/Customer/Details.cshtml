@@ -1,0 +1,17 @@
+﻿@model WebApplication1.Models.Customers
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.CustomerName</h2>
+
+<ul>
+
+    <li>@Model.MembershipType.Name</li>
+    @if(@Model.DateOfBirth!=null)
+    {
+    <li>@Model.DateOfBirth</li>
+    }
+</ul>
+

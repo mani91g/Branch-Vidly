@@ -1,0 +1,49 @@
+﻿@model IEnumerable<WebApplication1.Models.Movies>
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Movies</h2>
+<div>
+    <table id="movies" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Movie Name</th>
+                <th>Genre</th>
+                <th>Imdb Rating</th>
+            </tr>
+        </thead>
+
+    </table>
+</div>
+
+
+@section scripts
+    {
+    <script>
+        $(document).ready(function () {
+            var table = $("#movies").DataTable({
+                ajax: {
+                    url: "/api/movies",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "movieName"
+                    },
+                    {
+                        data: "genre.name"
+                    },
+                    {
+                        data: "imdbRating"
+                    }
+
+
+                ]
+            });
+            
+        });
+    </script>
+}
